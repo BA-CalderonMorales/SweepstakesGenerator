@@ -42,8 +42,8 @@ class UserInterface:
 
     @staticmethod
     def display_sweepstakes_info(sweepstakes_key):
-        "Takes in a Sweepstakes() object and then outputs the contestants \
-        in that current Sweepstakes dictionary."
+        "Takes in a Sweepstakes() object and then outputs the name that's \
+        in that current Sweepstakes object."
         the_sweepstakes_name = sweepstakes_key
         print("\n\tHere are the sweepstakes details\n")
         print(f"\t{the_sweepstakes_name}")
@@ -64,19 +64,45 @@ class UserInterface:
         they are planning on modifying one. The program will end if the user \
         selects to 'Terminate the Sweepstakes program'"
         print(f"\n\tHere are {firm_name}'s options as a marketing firm\n")
-        print(f"\tCreate a sweepstakes\n"
-              f"\tChange the {firm_name}'s firm name\n"
-              f"\tSelect a sweepstakes\n"
-              f"\tTerminate the Sweepstakes program")
+        print(f"\t1. Create a sweepstakes\n"
+              f"\t2. Change the firm name\n"
+              f"\t3. Select a sweepstakes\n"
+              f"\t4. Terminate the program")
+        user_choice = UserInterface.get_user_input_number("\n\tPlease make a selection from the options above: ")
+        decision = UserInterface.validate_user_input_menu_options(user_choice)
+        if not decision[0]:
+            print("That's not a valid selection. Please try again.")
+            UserInterface.display_marketing_firm_menu_options(firm_name)
+        else:
+            return decision[1]
 
     @staticmethod
     def display_sweepstakes_menu_options(sweepstakes_name):
         "Takes in a sweepstakes name and provides options for a user to select \
         a specific change to the sweepstake that is currently being referenced \
         in sweepstakes_name parameter."
-        print(f"\n\tHere are the menu options for the sweepstake: {sweepstakes_name}\n")
+        print(f"\n\tSweepstake - {sweepstakes_name} - Menu options\n")
         print(f"\t1. Register a contestant\n"
               f"\t2. Pick a winner\n"
               f"\t3. View all contestants\n"
               f"\t4. Return to previous menu")  # Marketing Firm Menu
-        UserInterface.get_user_input_string("\n\tPlease make a selection from the choice above: ")
+        user_choice = UserInterface.get_user_input_number("\n\tPlease make a selection from the options above: ")
+        decision = UserInterface.validate_user_input_menu_options(user_choice)
+        if not decision[0]:
+            print("That's not a valid selection. Please try again.")
+            UserInterface.display_sweepstakes_selection_menu(sweepstakes_name)
+        else:
+            return decision[1]
+
+    @staticmethod
+    def validate_user_input_menu_options(user_choice):
+        "Handles data input validation. User can only choose between options 1-4. \
+        anything else will return False. All valid inputs will return True, along \
+        with the number they chose."
+        valid_choice = {
+            1: (True, 1),
+            2: (True, 2),
+            3: (True, 3),
+            4: (True, 4)
+        }
+        return valid_choice.get(user_choice, (False, None))

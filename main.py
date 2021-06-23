@@ -71,17 +71,42 @@ UserInterface.display_sweepstakes_menu_options(sweepstakes_name)
 
 #  endregion - User_Interface check
 
+#  region MarketingFirm method checking
+#  Works as expected - Instantiate a MarketingFirm
+sweepstakes_list = list()
+jwt_marketing = MarketingFirm("JWT Marketing", sweepstakes_list)
+"""
+#  Works as expected - Create_Sweepstakes
+jwt_marketing.create_sweepstakes()
+print(jwt_marketing.sweepstakes_storage[0].name)
+
+#  Works as expected - Change_Marketing_Firm_Name
+jwt_marketing.change_marketing_firm_name()
+print(jwt_marketing.firm_name)
+
+#  Works as expected - Select_Sweepstakes
+jwt_marketing.select_sweepstakes()
+"""
+
+#  Works as expected - Menu
+jwt_marketing.menu()
+
+#  endregion
+
 #  region Contestant method checking
+"""
 contestant_one = Contestant("Brandon", "Calderon", "bacm@gmail.com", 121314)
 contestant_two = Contestant("Jim", "Jones", "jj@gmail.com", 101205)
 contestant_three = Contestant("Billy", "Joe-Bob", "bjb@gmail.com", 234567)
 #  Works as expected
 contestant_one.key['win_or_lose'] = True
 contestant_one.notify(contestant_one)
+"""
 #  endregion
 
 #  region Sweepstakes method checking
 
+"""
 contestant_one.key['win_or_lose'] = False
 sweepstakes_one = Sweepstakes("Life in LA", list())
 print(sweepstakes_one.name)
@@ -102,26 +127,7 @@ sweepstakes_one.view_contestants()
 
 # Works as expected - Menu
 sweepstakes_one.menu()
-
-#  region MarketingFirm method checking
-
-#  Works as expected - Instantiate a MarketingFirm
-sweepstakes_list = list()
-jwt_marketing = MarketingFirm("JWT Marketing", sweepstakes_list)
-
-#  Works as expected - Create_Sweepstakes
-jwt_marketing.create_sweepstakes()
-print(jwt_marketing.sweepstakes_storage[0].name)
-
-#  Works as expected - Change_Marketing_Firm_Name
-jwt_marketing.change_marketing_firm_name()
-print(jwt_marketing.name)
-
-#  Works as expected - Select_Sweepstakes
-jwt_marketing.select_sweepstakes()
-
-#  Works as expected - Menu
-jwt_marketing.menu()
+"""
 
 #  endregion
 

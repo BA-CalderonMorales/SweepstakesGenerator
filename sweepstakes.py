@@ -1,5 +1,6 @@
 import random
 
+from contestant import Contestant
 from user_interface import UserInterface
 
 
@@ -24,4 +25,29 @@ class Sweepstakes:
             UserInterface.display_contestant_info(contestant)
 
     def menu(self):
-        UserInterface.display_sweepstakes_menu_options(self.name)
+        choice = UserInterface.display_sweepstakes_menu_options(self.name)
+        marketing_firm_menu = 0
+        if choice == 1:
+            first_name_new_contestant = UserInterface.get_user_input_string("\n\tEnter the first name "
+                                                                            "of the new contestant here: ")
+            last_name_new_contestant = UserInterface.get_user_input_string("\n\tEnter the last name "
+                                                                           "of the new contestant here: ")
+            email_new_contestant = UserInterface.get_user_input_string("\n\tEnter the new contestant's "
+                                                                       "email here: ")
+            registration_id_new_contestant = UserInterface.get_user_input_number("\n\tEnter a unique, six-digit "
+                                                                                 "registration identifier for \n"
+                                                                                 "the new contestant.")
+            new_contestant = Contestant(first_name_new_contestant, last_name_new_contestant,
+                                        email_new_contestant, registration_id_new_contestant)
+            self.register_constestant(new_contestant)
+            self.menu()
+        elif choice == 2:
+            print("\n\tHere are the results for the random sweepstakes drawing!")
+            self.pick_winner()
+            self.menu()
+        elif choice == 3:
+            self.view_contestants()
+            self.menu()
+        elif choice == 4:
+            marketing_firm_menu = 4
+        return marketing_firm_menu
