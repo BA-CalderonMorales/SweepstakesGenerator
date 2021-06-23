@@ -17,14 +17,14 @@ class UserInterface:
         "Takes in a string, uses that string to prompt the user to \
         enter a word or phrase."
         user_input = input(prompt)
-        return f"\nThis is what the user entered: {user_input}"
+        return user_input
 
     @staticmethod
     def get_user_input_number(prompt):
         "Takes in a string, uses that string to prompt the user to \
         enter a number or group of numbers."
         user_number = int(input(prompt))
-        return f"\nThis is what the user entered: {user_number}"
+        return user_number
 
     @staticmethod
     def display_contestant_info(contestant):

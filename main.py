@@ -1,4 +1,5 @@
 # region Class Instantiations (will move soon)
+from marketing_firm import MarketingFirm
 from sweepstakes import Sweepstakes
 from user_interface import UserInterface
 from contestant import Contestant
@@ -93,7 +94,6 @@ print(UserInterface.display_contestant_info(sweepstakes_one.contestants[0]))  # 
 sweepstakes_one.register_constestant(contestant_two)
 sweepstakes_one.register_constestant(contestant_three)
 
-
 # Works as expected - Pick_Winner
 sweepstakes_one.pick_winner()
 
@@ -102,5 +102,23 @@ sweepstakes_one.view_contestants()
 
 # Works as expected - Menu - Needs functionality behind each choice.
 sweepstakes_one.menu()
+
+#  region MarketingFirm method checking
+
+#  Works as expected - Instantiate a MarketingFirm
+sweepstakes_list = list()
+jwt_marketing = MarketingFirm("JWT Marketing", sweepstakes_list)
+
+#  Works as expected - Create_Sweepstakes
+jwt_marketing.create_sweepstakes()
+print(jwt_marketing.sweepstakes_storage[0].name)
+
+#  Works as expected - Change_Marketing_Firm_Name
+jwt_marketing.change_marketing_firm_name()
+print(jwt_marketing.name)
+
+
+#  endregion
+
 
 #  endregion
