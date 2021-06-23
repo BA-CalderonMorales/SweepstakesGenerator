@@ -74,8 +74,9 @@ class UserInterface:
         "Takes in a sweepstakes name and provides options for a user to select \
         a specific change to the sweepstake that is currently being referenced \
         in sweepstakes_name parameter."
-        print(f"\n\tHere are the menu options for: {sweepstakes_name}")
-        print(f"\tRegister a contestant\n"
-              f"\tPick a winner\n"
-              f"\tView all contestants\n"
-              f"\tReturn to previous menu")  # Marketing Firm Menu
+        print(f"\n\tHere are the menu options for the sweepstake: {sweepstakes_name}\n")
+        print(f"\t1. Register a contestant\n"
+              f"\t2. Pick a winner\n"
+              f"\t3. View all contestants\n"
+              f"\t4. Return to previous menu")  # Marketing Firm Menu
+        UserInterface.get_user_input_string("\n\tPlease make a selection from the choice above: ")

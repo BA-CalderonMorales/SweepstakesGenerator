@@ -100,7 +100,7 @@ sweepstakes_one.pick_winner()
 # Works as expected - View_Contestants
 sweepstakes_one.view_contestants()
 
-# Works as expected - Menu - Needs functionality behind each choice.
+# Works as expected - Menu
 sweepstakes_one.menu()
 
 #  region MarketingFirm method checking
@@ -117,6 +117,11 @@ print(jwt_marketing.sweepstakes_storage[0].name)
 jwt_marketing.change_marketing_firm_name()
 print(jwt_marketing.name)
 
+#  Works as expected - Select_Sweepstakes
+jwt_marketing.select_sweepstakes()
+
+#  Works as expected - Menu
+jwt_marketing.menu()
 
 #  endregion
 
