@@ -8,13 +8,14 @@ class Contestant:
             "last_name": last,
             "email": email,
             "id": registration_number,
-            "win_or_loss": False
+            "win_or_lose": False
         }
 
     def notify(self, is_winner):
-        if is_winner.key['win_or_loss']:
-            print(f"\n\t\t{is_winner.key['first_name']} {is_winner.key['last_name']}! \n"
+        if is_winner.key['win_or_lose']:
+            print(f"\n\t\t{is_winner.key['first_name']} {is_winner.key['last_name']}!\n"
                   f"\tLooks like you're the winner!")
         else:
-            print("\n\tIt appears you didn't win this time. \n"
-                  "\tBetter luck next time!")
+            print(f"\n\t\t{is_winner.key['first_name']} {is_winner.key['last_name']}\n"
+                  f"\tIt appears you didn't win this time.\n"
+                  "\t\tBetter luck next time!")

@@ -44,13 +44,9 @@ class UserInterface:
     def display_sweepstakes_info(sweepstakes_key):
         "Takes in a Sweepstakes() object and then outputs the contestants \
         in that current Sweepstakes dictionary."
-        the_sweepstakes_name = sweepstakes_key.name
+        the_sweepstakes_name = sweepstakes_key
         print("\n\tHere are the sweepstakes details\n")
         print(f"\t{the_sweepstakes_name}")
-        print(f"\t{UserInterface.display_contestant_info(sweepstakes_key.contestants['one'])}\n"
-              f"\t{UserInterface.display_contestant_info(sweepstakes_key.contestants['two'])}\n"
-              f"\t{UserInterface.display_contestant_info(sweepstakes_key.contestants['three'])}\n"
-              f"\t{UserInterface.display_contestant_info(sweepstakes_key.contestants['four'])}\n")
 
     @staticmethod
     def display_sweepstakes_selection_menu(all_sweepstakes):

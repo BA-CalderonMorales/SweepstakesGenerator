@@ -1,13 +1,7 @@
 # region Class Instantiations (will move soon)
+from sweepstakes import Sweepstakes
 from user_interface import UserInterface
 from contestant import Contestant
-
-
-class Sweepstakes:
-    def __init__(self, the_name, all_contestants):
-        self.name = the_name
-        self.contestants = all_contestants
-
 
 #  endregion
 
@@ -81,6 +75,32 @@ contestant_one = Contestant("Brandon", "Calderon", "bacm@gmail.com", 121314)
 contestant_two = Contestant("Jim", "Jones", "jj@gmail.com", 101205)
 contestant_three = Contestant("Billy", "Joe-Bob", "bjb@gmail.com", 234567)
 #  Works as expected
-contestant_one.key['win_or_loss'] = True
+contestant_one.key['win_or_lose'] = True
 contestant_one.notify(contestant_one)
+#  endregion
+
+#  region Sweepstakes method checking
+
+contestant_one.key['win_or_lose'] = False
+sweepstakes_one = Sweepstakes("Life in LA", list())
+print(sweepstakes_one.name)
+print(sweepstakes_one.contestants)  # Empty list
+
+# Works as expected - Register_Contestant
+sweepstakes_one.register_constestant(contestant_one)  # Append the list
+print(sweepstakes_one.contestants)  # Print the list
+print(UserInterface.display_contestant_info(sweepstakes_one.contestants[0]))  # Print specific parts of that list
+sweepstakes_one.register_constestant(contestant_two)
+sweepstakes_one.register_constestant(contestant_three)
+
+
+# Works as expected - Pick_Winner
+sweepstakes_one.pick_winner()
+
+# Works as expected - View_Contestants
+sweepstakes_one.view_contestants()
+
+# Works as expected - Menu - Needs functionality behind each choice.
+sweepstakes_one.menu()
+
 #  endregion
