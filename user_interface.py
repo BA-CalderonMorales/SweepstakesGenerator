@@ -45,8 +45,7 @@ class UserInterface:
         "Takes in a Sweepstakes() object and then outputs the name that's \
         in that current Sweepstakes object."
         the_sweepstakes_name = sweepstakes_key
-        print("\n\tHere are the sweepstakes details\n")
-        print(f"\t{the_sweepstakes_name}")
+        print(f"\tAvailable: {the_sweepstakes_name}")
 
     @staticmethod
     def display_sweepstakes_selection_menu(all_sweepstakes):
