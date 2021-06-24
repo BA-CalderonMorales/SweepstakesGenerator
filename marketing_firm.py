@@ -30,9 +30,17 @@ class MarketingFirm:
         else:
             print("\n\tHere are all the sweepstakes you can choose from\n")
             #  Display the sweepstakes in the storage
-            for the_sweepstakes in self.sweepstakes_storage:
-                UserInterface.display_sweepstakes_info(the_sweepstakes.name)
-                self.count += 1
+            for index in range(0, len(self.sweepstakes_storage)):
+                if self.sweepstakes_storage[index].name is None:
+                    self.sweepstakes_storage.pop()
+
+            if len(self.sweepstakes_storage) > 0:
+                for the_sweepstakes in self.sweepstakes_storage:
+                    UserInterface.display_sweepstakes_info(the_sweepstakes.name)
+            else:
+                print("\tYou need to create some sweepstakes to choose from first.")
+                self.menu()
+
             #  Then, allow the user to choose a specific sweepstakes, based off of the list of
             #  current sweepstakes.
             selected_sweepstakes = UserInterface.get_user_input_string("\n\tSelect a sweepstakes by\n"
@@ -71,7 +79,7 @@ class MarketingFirm:
                 self.menu()
 
     def previous_menu_loop(self, the_list_containing_option_and_current_sweepstake):
-        the_option = the_list_containing_option_and_current_sweepstake[1]
+        the_option = the_list_containing_option_and_current_sweepstake[0]
         the_sweepstake = the_list_containing_option_and_current_sweepstake[1]
         if the_option == -1:
             self.menu()

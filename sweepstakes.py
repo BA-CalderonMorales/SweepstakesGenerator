@@ -45,13 +45,14 @@ class Sweepstakes:
                 print("\n\tIt appears you need to go back to the previous menu and\n"
                       "\tcreate a new sweepstake")
                 marketing_firm_menu = -1
-        elif choice == 2 and self.name is not None:
-            if len(self.contestants) > 0:
+        elif choice == 2:
+            if len(self.contestants) > 0 and self.name is not None:
                 print("\n\t-- Here are the results for the random sweepstakes drawing! --")
                 self.pick_winner()
                 self.name = None
                 for index in range(0, len(self.contestants)):
                     self.contestants.pop()
+                marketing_firm_menu = -1
             else:
                 print("\n\tIt appears you need to go back and register some contestants")
                 marketing_firm_menu = -1
