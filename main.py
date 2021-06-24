@@ -1,8 +1,4 @@
-# region Class Instantiations (will move soon)
 from marketing_firm import MarketingFirm
-from sweepstakes import Sweepstakes
-from user_interface import UserInterface
-from contestant import Contestant
 
 #  endregion
 
@@ -71,27 +67,6 @@ UserInterface.display_sweepstakes_menu_options(sweepstakes_name)
 
 #  endregion - User_Interface check
 
-#  region MarketingFirm method checking
-#  Works as expected - Instantiate a MarketingFirm
-sweepstakes_list = list()
-jwt_marketing = MarketingFirm("JWT Marketing", sweepstakes_list)
-"""
-#  Works as expected - Create_Sweepstakes
-jwt_marketing.create_sweepstakes()
-print(jwt_marketing.sweepstakes_storage[0].name)
-
-#  Works as expected - Change_Marketing_Firm_Name
-jwt_marketing.change_marketing_firm_name()
-print(jwt_marketing.firm_name)
-
-#  Works as expected - Select_Sweepstakes
-jwt_marketing.select_sweepstakes()
-"""
-
-#  Works as expected - Menu
-jwt_marketing.menu()
-
-#  endregion
 
 #  region Contestant method checking
 """
@@ -128,6 +103,28 @@ sweepstakes_one.view_contestants()
 # Works as expected - Menu
 sweepstakes_one.menu()
 """
+
+#  endregion
+
+#  region MarketingFirm method checking
+#  Works as expected - Instantiate a MarketingFirm
+sweepstakes_list = list()
+jwt_marketing = MarketingFirm("JWT Marketing", sweepstakes_list)
+"""
+#  Works as expected - Create_Sweepstakes
+jwt_marketing.create_sweepstakes()
+print(jwt_marketing.sweepstakes_storage[0].name)
+
+#  Works as expected - Change_Marketing_Firm_Name
+jwt_marketing.change_marketing_firm_name()
+print(jwt_marketing.firm_name)
+
+#  Works as expected - Select_Sweepstakes
+jwt_marketing.select_sweepstakes()
+"""
+
+#  Works as expected - Menu
+jwt_marketing.menu()
 
 #  endregion
 

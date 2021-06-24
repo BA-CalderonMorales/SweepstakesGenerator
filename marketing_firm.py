@@ -3,12 +3,17 @@ from user_interface import UserInterface
 
 
 class MarketingFirm:
+    "A class that will allow any marketing company to be able to create a sweepstake, \
+    change the marketing firm name if they choose to, select a sweepstakes from a \
+    list of sweepstakes, and terminate the program if they are finished using it."
     def __init__(self, the_name, storage):
+        "The constructor containing the name of the firm and the list of sweepstakes"
         self.firm_name = the_name
         self.sweepstakes_storage = storage
-        self.count = 1
 
     def create_sweepstakes(self):
+        "The method that allows the current marketing firm to create a sweepstakes and \
+        add it to the current sweepstake storage."
         new_sweepstake_name = UserInterface.get_user_input_string("\n\tEnter the name of the "
                                                                   "sweepstakes\n "
                                                                   "\tyou'd like to create: ")
@@ -16,11 +21,15 @@ class MarketingFirm:
         self.sweepstakes_storage.append(new_sweepstake)
 
     def change_marketing_firm_name(self):
+        "The method that allows the current marketing firm to change the name of their \
+        firm if they so choose to do so."
         self.firm_name = UserInterface.get_user_input_string("\n\tPlease enter the new name of "
                                                              "your\n "
                                                              "\tmarketing firm: ")
 
     def select_sweepstakes(self):
+        "This method allows the marketing firm to select a sweepstake from the list of \
+        sweepstakes that have been created."
         hold_current_option = 0
         hold_current_sweepstake = None
         #  Check that the sweepstakes storage is not empty
@@ -54,6 +63,9 @@ class MarketingFirm:
             return the_magic
 
     def menu(self):
+        "This method acts as the facade to the three previous methods. It will allow the user to: \
+        1) create a sweepstake; 2) change the name of their firm; 3) select a sweepstake from \
+        the current list of sweepstakes; and, 4) terminate the Sweepstake program."
         choice = UserInterface.display_marketing_firm_menu_options(self.firm_name)
         if choice == 1:
             self.create_sweepstakes()
@@ -79,6 +91,7 @@ class MarketingFirm:
                 self.menu()
 
     def previous_menu_loop(self, the_list_containing_option_and_current_sweepstake):
+        "This method is acting as a helper method for the self.menu() method."
         the_option = the_list_containing_option_and_current_sweepstake[0]
         the_sweepstake = the_list_containing_option_and_current_sweepstake[1]
         if the_option == -1:

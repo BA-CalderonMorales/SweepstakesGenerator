@@ -5,14 +5,20 @@ from user_interface import UserInterface
 
 
 class Sweepstakes:
+    "This class is used by the MarketingFirm class to create instances of sweepstakes."
     def __init__(self, the_name, all_contestants):
+        "The constructor containing the name of the sweepstake and the list of contestants."
         self.name = the_name
         self.contestants = all_contestants
 
     def register_constestant(self, contestant):
+        "The method that allows a marketing firm to register a contestant into the current \
+        sweepstake."
         self.contestants.append(contestant)
 
     def pick_winner(self):
+        "The method that randomly chooses a winner from a list of winners within a specific \
+        sweepstake."
         random_pick = random.randint(0, len(self.contestants) - 1)
         for index in range(0, len(self.contestants)):
             if index == random_pick:
@@ -21,10 +27,16 @@ class Sweepstakes:
             the_contestants.notify(the_contestants)
 
     def view_contestants(self):
+        "The method that allows a marketing firm to be able to view all the contestants in \
+        the current sweepstake."
         for contestant in self.contestants:
             UserInterface.display_contestant_info(contestant)
 
     def menu(self):
+        "The method that serves as a facade to all the previous methods. It allows the current \
+        marketing firm to choose from a list of options from a menu. These options include: 1) \
+        registering a contestant; 2) picking a winner; 3) viewing all the contestants; and, 4) \
+        returning to the previous menu."
         choice = UserInterface.display_sweepstakes_menu_options(self.name)
         marketing_firm_menu = 0
         if choice == 1:
